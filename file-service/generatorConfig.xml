@@ -1,0 +1,28 @@
+<generatorConfiguration>
+    <classPathEntry
+            location="D:/workspace/dubbo/myBatisGenerator" />
+    <context id="tts2">
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL= "jdbc:postgresql://192.168.238.130:5432/xyy"
+                        userId="postgres" password="postgres">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.xyy.dubbo.client.module" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.xyy.dubbo.client.mapper" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xyy.dubbo.client.mapper" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="public" tableName="file_info" domainObjectName="FileInfo"></table>
+        <!--
+        <table schema="public" tableName="operation" domainObjectName="Operation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" ></table>
+        -->
+    </context>
+</generatorConfiguration>
+

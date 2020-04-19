@@ -1,10 +1,14 @@
 
+
+server:
+  port: 8081
+
 dubbo:
   application:
     name: xyy-dubbo-boot
   registry:
     protocol: zookeeper
-    address: 192.168.238.130:2181
+    address: 8.129.216.97:2181
   protocol:
     port: 28801
 
@@ -14,4 +18,23 @@ fdfs:
   thumb-image:
     width: 150
     height: 150
-  tracker-list: 192.168.238.130:22122
+  tracker-list: 8.129.216.97:22122
+
+spring:
+  datasource:
+    url: jdbc:postgresql://8.129.216.97:5432/xyy   #数据库连接串
+    username: postgres   #  //账号（
+    password: postgres   #  //密码
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialec
+  flyway:
+    locations: classpath:db/migration   #flyway放置在那个目录下面,多个路径使用逗号分隔
+    baseline-on-migrate: true
+
+#自定义的类
+appconfig:
+  file-server: http://8.129.216.97/

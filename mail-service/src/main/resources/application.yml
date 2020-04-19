@@ -1,0 +1,18 @@
+spring:
+  mail:
+    host: smtp.163.com
+    password: JNOLNVJCPDAZAPQG
+    username: 18850198317@163.com
+    default-encoding: UTF-8
+
+mail:
+  address: 18850198317@163.com
+
+dubbo:
+  application:
+    name: xyy-dubbo-mail
+  registry:
+    protocol: zookeeper
+    address: 8.129.216.97:2181
+  protocol:
+    port: 28801
