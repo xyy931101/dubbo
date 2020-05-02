@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dubbo-boot-consumer" />
         <module name="dubboprovider" />
-        <module name="dubbo-boot-provider" />
+        <module name="dubbo-boot-consumer" />
         <module name="dubboclient" />
+        <module name="dubbo-boot-provider" />
         <module name="mail-service" />
         <module name="doubboconsumer" />
         <module name="file-service" />
