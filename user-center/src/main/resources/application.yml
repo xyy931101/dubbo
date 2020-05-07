@@ -1,0 +1,29 @@
+
+
+
+server:
+  port: 8086
+
+dubbo:
+  application:
+    name: xyy-dubbo-user
+  registry:
+    protocol: zookeeper
+    address: 8.129.216.97:2181
+  protocol:
+    port: 28806
+
+spring:
+  datasource:
+    url: jdbc:postgresql://8.129.216.97:5432/base   #数据库连接串
+    username: postgres   #  //账号（
+    password: postgres   #  //密码
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+  #  jpa:
+  #    properties:
+  #      hibernate:
+  #        dialect: org.hibernate.dialect.PostgreSQLDialec
+  flyway:
+    locations: classpath:db/migration   #flyway放置在那个目录下面,多个路径使用逗号分隔
+    baseline-on-migrate: true

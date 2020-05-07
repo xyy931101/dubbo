@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dubboprovider" />
         <module name="dubbo-boot-consumer" />
+        <module name="user-center" />
         <module name="dubboclient" />
         <module name="dubbo-boot-provider" />
         <module name="mail-service" />
@@ -28,6 +29,7 @@
       <module name="dubboprovider" options="-parameters" />
       <module name="file-service" options="-parameters" />
       <module name="mail-service" options="-parameters" />
+      <module name="user-center" options="-parameters" />
     </option>
   </component>
 </project>

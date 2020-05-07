@@ -1,28 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <classPathEntry
-            location="D:/workspace/dubbo/myBatisGenerator" />
-    <context id="tts2">
-        <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL= "jdbc:postgresql://192.168.238.130:5432/xyy"
-                        userId="postgres" password="postgres">
-        </jdbcConnection>
+    <!-- 增改字段处理流程 ===========
+        1、修改表（遵循flyway相关规则）
+        2、运行mybatis generator	 =>  mvn mybatis-generator:generate
+        3、把Mapper、Example、Mapper.java、Mapper.xml分别复制（覆盖）到相应的目录中
+        4、修改model，加上 @Data @EqualsAndHashCode(of={"id"})
+     -->
+    <context id="context1" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
 
-        <javaModelGenerator targetPackage="com.xyy.dubbo.client.module" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
-            <property name="enableSubPackages" value="false" />
-            <property name="trimStrings" value="true" />
-        </javaModelGenerator>
+        <jdbcConnection
+                connectionURL="jdbc:postgresql://8.129.216.97:5432/xyy?currentSchema=public"
+                driverClass="org.postgresql.Driver" userId="postgres" password="postgres" />
 
-        <sqlMapGenerator targetPackage="com.xyy.dubbo.client.mapper" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
-        </sqlMapGenerator>
+        <!-- 生成到独立位置，生成后手工合并到本工程 -->
+        <javaModelGenerator targetPackage="com.xyy.dubbo.client.mudule" targetProject="target/mybatis/model" />
+        <sqlMapGenerator targetPackage="com.xyy.dubbo.client.mapper" targetProject="target/mybatis/mapper" />
+        <javaClientGenerator targetPackage="com.xyy.dubbo.client.mapper" type="XMLMAPPER" targetProject="target/mybatis/mapper" />
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xyy.dubbo.client.mapper" targetProject="D:/workspace/dubbo/myBatisGenerator/target">
-            <property name="enableSubPackages" value="false" />
-        </javaClientGenerator>
-
-        <table schema="public" tableName="file_info" domainObjectName="FileInfo"></table>
-        <!--
-        <table schema="public" tableName="operation" domainObjectName="Operation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" ></table>
-        -->
+        <!-- 所有表 -->
+        <!--  -->
+        <table tableName="file_info">
+            <generatedKey column="id" sqlStatement="JDBC" />
+        </table>
     </context>
 </generatorConfiguration>
-
