@@ -1,5 +1,6 @@
 package com.xyy.dubbo.consumer;
 
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.xyy.dubbo.client.service.IUserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -25,8 +26,11 @@ public class UserConsumer {
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"classpath:dubbo-consumer.xml"});
         context.start();
-        IUserService userService = context.getBean(IUserService.class); // 获取远程服务代理
-        System.out.println("消费者的调用：" + userService.say());// 执行远程方法
+        // 获取远程服务代理
+        RpcContext.getContext().setAttachment("company", "xyyTest");
+        IUserService userService = context.getBean(IUserService.class);
+        // 执行远程方法
+        System.out.println("消费者的调用：" + userService.say());
         System.in.read();
     }
 }

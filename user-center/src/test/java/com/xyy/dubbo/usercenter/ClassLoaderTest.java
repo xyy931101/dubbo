@@ -1,11 +1,10 @@
-package com.xyy.dubbo.provider;
+package com.xyy.dubbo.usercenter;
 
-import com.alibaba.dubbo.rpc.RpcContext;
-import com.xyy.dubbo.client.service.IUserService;
+import java.security.Provider;
 
 /**
  * @Author: Xiongyy
- * @Date: 2020/4/11 13:36
+ * @Date: 2020/5/17 21:59
  * .............................................
  * 佛祖保佑             永无BUG
  * 佛曰:
@@ -18,13 +17,19 @@ import com.xyy.dubbo.client.service.IUserService;
  * 别人笑我忒疯癫，我笑自己命太贱；
  * 不见满街漂亮妹，哪个归得程序员？
  */
-public class IUserServiceImpl implements IUserService {
+public class ClassLoaderTest {
 
-    @Override
-    public String say() {
-        System.out.println("这是在调用dubbo的提供者");
-        RpcContext context = RpcContext.getContext();
-        String company = context.getAttachment("company");
-        return "this is the provider!!!" + company;
+    public static void main(String[] args) {
+        System.out.println("*****启动类加载器*****");
+        ClassLoader classLoader = Provider.class.getClassLoader();
+        System.out.println(classLoader);
+
+
+        String property = System.getProperty("java.ext.dirs");
+        for (String path:
+             property.split(";")) {
+            System.out.println(path);
+
+        }
     }
 }

@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 @Service    //dubbo服务的Service
 public class UserServiceImpl implements IUserService {
 
+    @Override
     public String say() {
         System.out.println("这是在调用dubbo的提供者");
         return "this is the consumer!!!";

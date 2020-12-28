@@ -1,11 +1,8 @@
-package com.xyy.dubbo.provider;
-
-import com.alibaba.dubbo.rpc.RpcContext;
-import com.xyy.dubbo.client.service.IUserService;
+package com.xyy.dubbo.usercenter;
 
 /**
  * @Author: Xiongyy
- * @Date: 2020/4/11 13:36
+ * @Date: 2020/5/22 19:52
  * .............................................
  * 佛祖保佑             永无BUG
  * 佛曰:
@@ -18,13 +15,10 @@ import com.xyy.dubbo.client.service.IUserService;
  * 别人笑我忒疯癫，我笑自己命太贱；
  * 不见满街漂亮妹，哪个归得程序员？
  */
-public class IUserServiceImpl implements IUserService {
+public class StackErrorTest {
 
-    @Override
-    public String say() {
-        System.out.println("这是在调用dubbo的提供者");
-        RpcContext context = RpcContext.getContext();
-        String company = context.getAttachment("company");
-        return "this is the provider!!!" + company;
+    public static void main(String[] args) {
+        main(args);
     }
+
 }

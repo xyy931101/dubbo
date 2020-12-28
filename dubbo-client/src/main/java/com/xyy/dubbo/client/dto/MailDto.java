@@ -31,4 +31,6 @@ public class MailDto {
 
     private String content;
 
+//    private UserType userType;
+
 }

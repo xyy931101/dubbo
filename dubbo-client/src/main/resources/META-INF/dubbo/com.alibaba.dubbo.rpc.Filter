@@ -1,0 +1,2 @@
+p_xyyFilter=com.xyy.dubbo.client.filter.MyFilter
+c_addParamFilter=com.xyy.dubbo.client.filter.AddParamFilter
